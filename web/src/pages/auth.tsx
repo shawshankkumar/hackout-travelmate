@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import qs from "querystring";
+import Logo from "@/components/Logo";
 import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
 
@@ -34,27 +35,12 @@ export default function SignIn() {
       <Head>
         <title>Sign In | travelMate</title>
       </Head>
-      <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 lg:grid-cols-3 grow">
-        <div className="p-2 flex flex-col items-center justify-center gap-2 lg:col-span-2">
-          <Image
-            src="/images/place1.jpg"
-            alt="image"
-            width={6496}
-            height={4331}
-            className="rounded-lg md:w-[40vw] lg:w-[30vw]"
-          />
-          <Image
-            src="/images/place2.jpg"
-            alt="image"
-            width={4366}
-            height={2911}
-            className="rounded-lg md:w-[40vw] lg:w-[30vw]"
-          />
-        </div>
-        <div className="flex flex-col gap-2 items-center justify-center bg-gray-100">
-          <p className="text-xl font-bold">Get Started Now!</p>
+      <div className="flex flex-col-reverse lg:flex-row grow">
+        <div className="flex flex-col gap-2 items-center justify-center bg-black/90 grow">
+          <Logo className="text-white text-3xl md:text-5xl my-10" size={48} />
+          <p className="text-xl font-bold text-white">Get Started Now!</p>
           <div>
-            <Button onClick={handleSignIn} className="h-14 px-8 ">
+            <Button variant="secondary" onClick={handleSignIn} className="h-14 px-8 ">
               <div className="flex items-center gap-3">
                 <Image
                   src="/icons/google.svg"
@@ -67,6 +53,14 @@ export default function SignIn() {
             </Button>
           </div>
         </div>
+        <Image
+          src="/images/place2.jpg"
+          alt="image"
+          width={4366}
+          height={2911}
+          className="md:w-[40vw] lg:w-[60vw]"
+          loading="eager"
+        />
       </div>
     </>
   );

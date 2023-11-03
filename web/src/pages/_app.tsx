@@ -7,7 +7,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className="flex flex-col min-h-screen">
       <Toaster />
-      <Navbar />
       <Component {...pageProps} />
     </main>
   )
