@@ -8,6 +8,12 @@ import DB from "@/loaders/mongo";
 
 const __dirname = path.dirname(__filename);
 
+declare module "fastify" {
+  interface FastifyReply {
+    locals: Record<string, unknown>;
+  }
+}
+
 const server = Fastify({
   bodyLimit: 30 * 1024 * 1024,
   logger: true,
