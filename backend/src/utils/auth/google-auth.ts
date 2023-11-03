@@ -30,7 +30,7 @@ export async function findUserProfileGoogle(accessToken: string) {
         },
         description: "",
         destinations: [],
-        sessions: [],
+        services: [],
       });
     }
     return {

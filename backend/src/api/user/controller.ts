@@ -42,7 +42,7 @@ export const handleUserProfileFetch: RouteHandler<{ Params: UsernameType }> =
           { name: "Auckland, New Zealand" },
           { name: "Colosseum, Rome, Italy" },
         ],
-        sessions: [
+        services: [
           {
             enabled: true,
             amount: 200,
