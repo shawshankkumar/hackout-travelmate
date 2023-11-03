@@ -1,5 +1,6 @@
 import axios, { AxiosError } from "axios";
 import DB from "@/loaders/mongo";
+import slugify from "slugify";
 
 export async function findUserProfileGoogle(accessToken: string) {
   try {
@@ -7,12 +8,20 @@ export async function findUserProfileGoogle(accessToken: string) {
     const userData = await (await DB())
       .collection("users")
       .findOne({ email: user.email });
+    const username = slugify(user.email, {
+      replacement: "-",
+      remove: /[*+~.()'"!:@]/g,
+      lower: true,
+      strict: true,
+      trim: true,
+    });
     if (!userData) {
       await (await DB()).collection("users").insertOne({
         ...user,
         role: "user",
         createdAt: new Date(),
         updatedAt: new Date(),
+        username,
       });
     }
     return {
@@ -45,5 +54,5 @@ export const getUserDataFromGoogle = async (accessToken: string) => {
       authorization: `Bearer ${accessToken}`,
     },
   });
-  return response.data
+  return response.data;
 };
