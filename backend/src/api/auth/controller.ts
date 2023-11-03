@@ -4,7 +4,7 @@ import { findUserProfileGoogle } from "@/utils/auth/google-auth";
 import { AuthTokenParamType } from "@/api/auth/models";
 import config from "@/utils/config";
 
-export const handleGoogleAuth: RouteHandler<{ Params: AuthTokenParamType }> =
+export const handleGoogleAuth: RouteHandler =
   async function (request, reply) {
     const token = request.headers['x-auth-token'];
     const response = await axios({
