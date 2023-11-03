@@ -31,6 +31,7 @@ export async function findUserProfileGoogle(accessToken: string) {
       given_name: user.given_name,
       family_name: user.family_name,
       pictureUrl: user.picture,
+      username,
     };
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
