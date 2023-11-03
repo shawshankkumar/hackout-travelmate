@@ -1,3 +1,12 @@
+import Head from "next/head";
+
 export default function Home() {
-  return <main>Hello HACKS</main>;
+  return (
+    <>
+      <Head>
+        <title>Home | travelMate</title>
+      </Head>
+      <div>Hello HACKS</div>
+    </>
+  );
 }
