@@ -1,4 +1,3 @@
-cd hackout-travelmate
 git pull
 cd backend
 pnpm i
