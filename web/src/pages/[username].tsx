@@ -1,3 +1,4 @@
+import ServiceCard from "@/components/ServiceCard";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AiFillInstagram } from "react-icons/ai";
 import { GetServerSidePropsContext } from "next";
@@ -32,9 +33,9 @@ export default function UserPage({ username }: { username: string }) {
             <li>Kerala</li>
           </ul>
           <div className="flex gap-4 items-center mt-10">
-            <BsYoutube className="h-7 w-7" />
-            <AiFillInstagram className="h-7 w-7" />
-            <BiLogoFacebookCircle className="h-7 w-7" />
+            <BsYoutube className="h-7 w-7"  />
+            <AiFillInstagram className="h-7 w-7"  />
+            <BiLogoFacebookCircle className="h-7 w-7"  />
           </div>
         </div>
       </section>
@@ -61,6 +62,32 @@ export default function UserPage({ username }: { username: string }) {
             <BiLogoFacebookCircle />
           </div>
         </div>
+      </section>
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-4 h-fit lg:w-3/4 lg:p-5">
+        <ServiceCard
+          serviceId={1234}
+          username={username}
+          serviceTitle={username}
+          serviceDescription="Service Description"
+          servicePrice={0}
+          serviceTime="30"
+        />
+        <ServiceCard
+          serviceId={1234}
+          username={username}
+          serviceTitle={username}
+          serviceDescription="Service Description"
+          servicePrice={0}
+          serviceTime="30"
+        />
+        <ServiceCard
+          serviceId={1234}
+          username={username}
+          serviceTitle={username}
+          serviceDescription="Service Description"
+          servicePrice={0}
+          serviceTime="30"
+        />
       </section>
     </main>
   );
