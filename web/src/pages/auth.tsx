@@ -40,7 +40,7 @@ export default function SignIn() {
           <Logo className="text-white text-3xl md:text-5xl my-10" size={48} />
           <p className="text-xl font-bold text-white">Get Started Now!</p>
           <div>
-            <Button variant="secondary" onClick={handleSignIn} className="h-14 px-8 ">
+            <Button variant="secondary" onClick={handleSignIn} className="h-14 px-8">
               <div className="flex items-center gap-3">
                 <Image
                   src="/icons/google.svg"
@@ -58,7 +58,7 @@ export default function SignIn() {
           alt="image"
           width={4366}
           height={2911}
-          className="md:w-[40vw] lg:w-[60vw]"
+          className="lg:w-[60vw]"
           loading="eager"
         />
       </div>
