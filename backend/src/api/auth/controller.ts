@@ -6,7 +6,7 @@ import config from "@/utils/config";
 
 export const handleGoogleAuth: RouteHandler<{ Params: AuthTokenParamType }> =
   async function (request, reply) {
-    const { token } = request.params;
+    const token = request.headers['x-auth-token'];
     const response = await axios({
       url: "https://oauth2.googleapis.com/token",
       method: "post",
