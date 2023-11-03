@@ -1,3 +1,4 @@
+import Hero from "@/components/sections/Hero";
 import Head from "next/head";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Home | travelMate</title>
       </Head>
-      <div>Hello HACKS</div>
+      <Hero />
     </>
   );
 }
