@@ -9,6 +9,7 @@ export default function CompanyLogo({
     <div className={`flex items-center gap-2 w-fit ${className}`}>
       <div>
         <svg
+        className="mt-2"
           width={size}
           height={size}
           viewBox="0 0 20 20"
@@ -39,7 +40,7 @@ export default function CompanyLogo({
           />
         </svg>
       </div>
-      <span className=" font-bold">travelmate</span>
+      <span className="font-bold">travelmate</span>
     </div>
   );
 }

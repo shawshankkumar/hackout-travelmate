@@ -36,23 +36,6 @@ export default function SignIn() {
         <title>Sign In | travelMate</title>
       </Head>
       <div className="flex flex-col-reverse lg:flex-row grow">
-        <div className="flex flex-col gap-2 items-center justify-center bg-black/90 grow">
-          <Logo className="text-white text-3xl md:text-5xl my-10" size={48} />
-          <p className="text-xl font-bold text-white">Get Started Now!</p>
-          <div>
-            <Button variant="secondary" onClick={handleSignIn} className="h-14 px-8">
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/icons/google.svg"
-                  alt="google logo"
-                  width={32}
-                  height={32}
-                />{" "}
-                Sign In with Google
-              </div>
-            </Button>
-          </div>
-        </div>
         <Image
           src="/images/place2.jpg"
           alt="image"
@@ -61,6 +44,27 @@ export default function SignIn() {
           className="lg:w-[60vw]"
           loading="eager"
         />
+        <div className="flex flex-col gap-2 items-center justify-center grow">
+          <Logo className="text-black text-3xl md:text-5xl my-3" size={48} />
+          <p className="text-xl font-bold text-white">Get Started Now!</p>
+          <div>
+            <Button
+              variant="secondary"
+              onClick={handleSignIn}
+              className="h-14 px-8 bg-black text-white hover:bg-gray-700"
+            >
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/icons/google.svg"
+                  alt="google logo"
+                  width={32}
+                  height={32}
+                />
+                Sign In with Google
+              </div>
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );
