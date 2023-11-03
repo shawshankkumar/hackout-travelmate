@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": false,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "pretty": true,
+      "sourceMap": false,
+      "outDir": "./build",
+      "allowJs": true,
+      "strict": true,
+      "noFallthroughCasesInSwitch": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      }
+    },
+    "exclude": ["node_modules", "tests", "build"],
+    "include": ["./src/**/*.ts", "./src/types"]
+  }
