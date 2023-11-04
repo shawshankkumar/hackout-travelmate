@@ -5,4 +5,5 @@ type User = {
   picture: string;
   createdAt: string;
   username: string;
+  description: string;
 }
