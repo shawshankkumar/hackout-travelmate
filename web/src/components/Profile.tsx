@@ -65,27 +65,24 @@ export default function Profile() {
           <span className="font-bold text-slate-900 text-lg mb-2">
             Social Links
           </span>
-          <div className="mt-4 flex flex-col gap-2">
+          <div className="mt-4 flex flex-col gap-2 max-w-xl">
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
               <AiFillInstagram className="h-16 w-16" />
               <Input type="email" placeholder="Instagram" />
-              <Button type="submit">+ Add</Button>
             </div>
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
               <BiLogoFacebookCircle className="h-16 w-16" />
               <Input type="email" placeholder="Facebook" />
-              <Button type="submit">+ Add</Button>
             </div>
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
               <BsYoutube className="h-16 w-16" />
               <Input type="email" placeholder="Youtube" />
-              <Button type="submit">+ Add</Button>
             </div>
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
               <FaXTwitter className="h-16 w-16" />
               <Input type="email" placeholder="Twitter" />
-              <Button type="submit">+ Add</Button>
             </div>
+            <Button type="submit" className="w-[67%] mt-2">+ Add</Button>
           </div>
         </div>
         <div className="mt-8">
