@@ -88,7 +88,16 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="w-full lg:w-1/2 hidden lg:block"></div>
+      <div className="w-full lg:w-1/2 hidden lg:block">
+        <Image
+          className=""
+          src="/images/masonry.png"
+          alt="/"
+          layout="responsive"
+          width={600}
+          height={600}
+        />
+      </div>
     </div>
   );
 };

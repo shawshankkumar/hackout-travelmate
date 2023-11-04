@@ -53,18 +53,18 @@ export default function SignIn() {
           className="lg:w-[60vw] object-cover"
           loading="eager"
         />
-        <div className="flex flex-col gap-2 items-center justify-center bg-black/90 grow">
-          <Logo className="text-white text-3xl md:text-5xl my-10" size={48} />
+        <div className="flex flex-col gap-2 items-center justify-center bg-white grow">
+          <Logo className="text-white text-3xl md:text-5xl my-8" size={48} />
           <p className="text-xl font-bold text-white">Get Started Now!</p>
           <div>
-            <Button variant="secondary" onClick={handleSignIn} className="h-14 px-8">
-              <div className="flex items-center gap-3">
+            <Button variant="outline" size={"lg"} onClick={handleSignIn} className="h-14 px-8">
+              <div className="flex items-center gap-3 text-lg font-medium">
                 <Image
                   src="/icons/google.svg"
                   alt="google logo"
                   width={32}
                   height={32}
-                />{" "}
+                />
                 Sign In with Google
               </div>
             </Button>
