@@ -41,16 +41,16 @@ export default function Service({
       </Head>
       {confirm ? (
         <main className="flex items-center justify-center bg-purple-200 h-screen">
-          <div className="flex flex-col md:flex-row bg-white w-[300px] md:min-h-[450px] md:w-[800px] lg:w-[1000px] mx-auto rounded-lg font-mono">
-            <div className="px-7 py-8 lg:px-12 clip-circle" />
+          <div className="flex flex-col md:flex-row bg-white w-[300px] md:min-h-[300px] lg:min-h-[450px] md:w-[750px] lg:w-[1000px] mx-auto rounded-lg font-mono">
+            <div className="px-7 py-8 md:px-12 clip-circle" />
             {showPayment ? <p className="grow text-xl self-center text-center font-bold">do payment and redirect</p> : (
               <>
-                <div className="flex flex-col gap-2 px-6 py-8 lg:my-auto md:w-[400px] border-b-2 md:border-r-2 md:border-b-0 border-dashed text-black/70 md:text-lg lg:text-xl">
+                <div className="flex flex-col gap-2 px-6 py-8 md:my-auto md:w-[250px] lg:w-[400px] border-b-2 md:border-r-2 md:border-b-0 border-dashed text-black/70 md:text-lg lg:text-xl">
                   <Logo className="text-black" size={24} />
                   <p>Ladakh Bike Trip Session</p>
                   <p>04 Nov 2:00 AM</p>
                   <p>30 Min ₹400</p>
-                  {bookingConfirmed ? (<a className="cursor-pointer hover:underline">meet.google.com/something-random-url</a>) : <Button onClick={mockPayment}>Confirm Booking</Button>}
+                  {bookingConfirmed ? (<a className="cursor-pointer hover:underline break-all">meet.google.com/something-random-url</a>) : <Button onClick={mockPayment}>Confirm Booking</Button>}
                 </div>
                 <div className="flex flex-col gap-10 justify-evenly grow px-6 py-8 text-black/80 lg:text-xl">
                   <div className="flex items-center gap-3">
@@ -80,7 +80,7 @@ export default function Service({
                 </div>
               </>
             )}
-            <div className="px-7 py-8 lg:px-12 clip-circle rotate-180" />
+            <div className="px-7 py-8 md:px-12 clip-circle rotate-180" />
           </div>
         </main>
       ) : (
