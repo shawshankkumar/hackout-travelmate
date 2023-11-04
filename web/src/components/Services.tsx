@@ -47,7 +47,7 @@ export default function Services() {
       <Button className="ml-2 mt-4" onClick={addService}>
         Create Service
       </Button>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-4 h-fit lg:p-5 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-4 h-fit lg:p-5 mt-4">
         {servicesArr?.map((service: any) => {
           if (service.enabled) {
             return (

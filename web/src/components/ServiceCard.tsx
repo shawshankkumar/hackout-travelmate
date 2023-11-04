@@ -117,7 +117,7 @@ export default function ServiceCard({
           <span className="flex items-center">
             <BiRupee />
             {edit ? (
-              <Input type="number" placeholder="Service Charge" />
+              <Input type="number" placeholder="Amount" className=" w-28" />
             ) : (
               servicePrice
             )}
