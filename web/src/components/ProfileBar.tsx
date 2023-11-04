@@ -1,5 +1,6 @@
 import { ArrowTopRightIcon, Share1Icon } from "@radix-ui/react-icons";
 import useUser from "@/hooks/use-user";
+import Link from "next/link";
 
 export default function ProfileBar() {
   const { given_name, username } = useUser();
@@ -16,7 +17,9 @@ export default function ProfileBar() {
       </div>
       <div className="flex items-center gap-2">
         <div className="bg-purple-400 p-2 lg:p-3 rounded-full hover:bg-purple-500">
-          <ArrowTopRightIcon className="h-4 w-4 lg:h-6 lg:w-6 text-white stroke-2" />
+          <Link href={`/${username}`}>
+            <ArrowTopRightIcon className="h-4 w-4 lg:h-6 lg:w-6 text-white stroke-2" />
+          </Link>
         </div>
         <div className="p-2 lg:p-3 rounded-full hover:bg-orange-300">
           <Share1Icon className="h-4 w-4 lg:h-6 lg:w-6 text-black stroke-2" />

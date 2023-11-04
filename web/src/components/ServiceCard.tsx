@@ -126,6 +126,7 @@ export default function ServiceCard({
         {editible ? (
           <div className="flex gap-3">
             <Button
+            className="hidden lg:block"
               size={"sm"}
               variant={"outline"}
               onClick={() => setDisabled((prev) => !prev)}
