@@ -4,7 +4,7 @@ import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 const About = () => {
   return (
-    <div className="flex flex-col lg:flex lg:flex-row w-full h-screen bg-travelMate-backgroundLight">
+    <div className="flex flex-col lg:flex lg:flex-row w-full min-h-screen h-fit bg-travelMate-backgroundLight">
       <div className="w-full h-full lg:w-1/2 flex flex-col justify-center gap-10 p-5 lg:p-20">
         <div>
           <h1 className="text-6xl font-semibold">
