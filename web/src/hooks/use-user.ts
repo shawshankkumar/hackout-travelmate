@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function useUser() {
   const router = useRouter();
-  const { getToken } = useStoreZ();
+  const { getToken, removeToken } = useStoreZ();
   const { access_token: token} = getToken();
   const [user, setUser] = useState<User>({} as User);
 
@@ -16,6 +16,7 @@ export default function useUser() {
 
     getUserData(token).then((data) => {
       if (!data) {
+        removeToken()
         router.push("/auth");
       } else {
         setUser(data.userData);
