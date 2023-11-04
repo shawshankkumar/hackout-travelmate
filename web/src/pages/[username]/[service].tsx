@@ -77,7 +77,7 @@ export default function Service({
           {date && <TimeSlotPicker startTime="10:00" endTime="12:00" timeInterval={30} />}
         </section>
       </section>
-      <section className="mx-3 lg:mx-0 md:max-w-[80%] md:mx-auto lg:min-w-[20%] lg:max-w-[50%] lg:p-8 lg:rounded-xl bg-white">
+      <section className="mx-3 lg:mx-0 md:max-w-[80%] md:mx-auto lg:min-w-[30%] lg:max-w-[50%] lg:p-8 lg:rounded-xl bg-white">
         <section className="hidden md:flex md:flex-col">
           <h2 className="font-bold text-lg">Book your session</h2>
           <Calendar
