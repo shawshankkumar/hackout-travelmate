@@ -11,12 +11,14 @@ export default function useUser() {
 
   useEffect(() => {
     if (!token) {
+      localStorage.setItem("redirect_to", router.asPath);
       router.push("/auth");
     }
 
     getUserData(token).then((data) => {
       if (!data) {
         flushToken()
+        localStorage.setItem("redirect_to", router.asPath);
         router.push("/auth");
       } else {
         setUser(data.userData);
