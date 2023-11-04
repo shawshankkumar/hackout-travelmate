@@ -8,6 +8,7 @@ type User = {
   createdAt: string;
   description: string;
   services: any[];
+  destinations: any[];
 }
 
 type DayAvailability = {

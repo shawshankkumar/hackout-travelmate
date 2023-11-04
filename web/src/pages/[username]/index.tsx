@@ -6,6 +6,7 @@ import { BsYoutube } from "react-icons/bs";
 import { FaMapLocationDot, FaXTwitter } from "react-icons/fa6";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import axios from "axios";
+import CompanyLogo from "@/components/CompanyLogo";
 
 export default function UserPage({ data }: { data: any }) {
   const {
@@ -18,10 +19,10 @@ export default function UserPage({ data }: { data: any }) {
     description,
     destinations,
   } = data.userData;
-  
+
   return (
     <main className="mx-3 py-3 lg:mx-0 lg:py-0 lg:flex">
-      <section className="hidden lg:flex lg:flex-col w-3/12 bg-purple-200 h-screen px-7 justify-center">
+      <section className="hidden lg:flex lg:flex-col w-3/12 border-r border-slate-200 bg-purple-200 h-screen px-7 justify-center">
         <div className="flex gap-5 items-center py-5">
           <Avatar className="h-28 w-28">
             <AvatarImage src={picture} alt="@shadcn" />
@@ -39,12 +40,16 @@ export default function UserPage({ data }: { data: any }) {
             <FaMapLocationDot className="h-7 w-7" />
             <span className="text-lg font-semibold">Destinations</span>
           </div>
-          <ul>
-            {destinations.map((destination: any) => (
-              <li key={destination.id} className="text-sm">
+          <ul className="grid grid-cols-2 gap-3 mt-3">
+            {destinations.slice(0, 6).map((destination: any) => (
+              <li
+                key={destination.id}
+                className="bg-purple-300 px-3 py-1 rounded-md whitespace-nowrap overflow-hidden text-ellipsis text-xs text-slate-950 font-bold"
+              >
                 {destination.name}
               </li>
-            ))}
+            ))}{" "}
+            {destinations.length - 6 > 0 && `+ ${destinations.length - 6} more`}
           </ul>
           <div className="flex gap-4 items-center mt-10">
             <a href={socials.youtube} target="_blank">
@@ -62,7 +67,7 @@ export default function UserPage({ data }: { data: any }) {
           </div>
         </div>
       </section>
-      <section className="mb-2 bg-purple-200 rounded-lg p-6 flex flex-col gap-1 lg:hidden">
+      <section className="mb-2 border-slate-200 border rounded-lg p-6 flex flex-col gap-1 lg:hidden">
         <div className="flex gap-2 items-center">
           <Avatar className="h-11 w-11">
             <AvatarImage src={picture} alt={given_name} />
@@ -73,7 +78,7 @@ export default function UserPage({ data }: { data: any }) {
           </h1>
         </div>
         <p className="text-xs text-black/50">{description}</p>
-        <div className="flex items-center justify-between mt-4">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center justify-between mt-4">
           <div className="flex gap-2 items-center">
             <FaMapLocationDot className="h-7 w-7" />
             <span className="text-xs font-semibold">

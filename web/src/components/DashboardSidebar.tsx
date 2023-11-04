@@ -1,4 +1,5 @@
 import CompanyLogo from "@/components/CompanyLogo";
+import SectionIcon from "@/components/SectionIcon";
 import { dashboardSectionType, dashboardSections } from "@/utils/constants";
 import Link from "next/link";
 
@@ -19,9 +20,9 @@ export default function DashboardSideBar({
                   active === key
                     ? " bg-slate-700 text-white"
                     : "bg-white text-slate-500 hover:bg-slate-200"
-                }`}
+                } flex items-center gap-4`}
               >
-                {value}
+                <SectionIcon icon={value} /> {value}
               </div>
             </Link>
           ))}
