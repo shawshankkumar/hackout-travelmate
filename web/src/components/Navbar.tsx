@@ -10,17 +10,12 @@ interface NavbarProps {
 export default function Navbar({ variant }: NavbarProps) {
   const { isAuthenticated } = useAuth();
 
-  switch (variant) {
-    case "dashboard":
-      return <div />;
-    default:
-      return (
-        <nav className="flex justify-between items-center px-2 py-4 md:px-8 md:py-8 lg:px-12 xl:px-20">
-          <Logo className="self-start items-center text-xl" size={32} />
-          <Button className="md:text-lg md:px-6 md:py-5">
-            {isAuthenticated ? <Link href="/dashboard/profile">Visit Dashboard</Link> : <Link href="/auth">Get Started</Link>}
-          </Button>
-        </nav>
-      )
-  }
+  return (
+    <nav className="flex justify-between items-center px-2 py-4 md:px-8 md:py-8 lg:px-12 xl:px-20">
+      <Logo className="self-start items-center text-xl" size={32} />
+      <Button className="md:text-lg md:px-6 md:py-5">
+        {isAuthenticated ? <Link href="/dashboard/profile">Visit Dashboard</Link> : <Link href="/auth">Get Started</Link>}
+      </Button>
+    </nav>
+  )
 }
