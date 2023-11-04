@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function useUser() {
   const router = useRouter();
   const { getToken, flushToken } = useStoreZ();
-  const { access_token: token} = getToken();
+  const { access_token: token } = getToken();
   const [user, setUser] = useState<User>({} as User);
 
   useEffect(() => {
@@ -24,8 +24,6 @@ export default function useUser() {
         setUser(data.userData);
       }
     });
-
-  }, [router, token])
-
+  }, [router, token]);
   return user;
 }

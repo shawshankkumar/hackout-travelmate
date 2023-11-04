@@ -6,6 +6,8 @@ type User = {
   family_name: string;
   picture: string;
   createdAt: string;
+  description: string;
+  services: any[];
 }
 
 type DayAvailability = {
