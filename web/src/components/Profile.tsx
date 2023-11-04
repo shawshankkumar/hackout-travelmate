@@ -9,10 +9,18 @@ import { BiLogoFacebookCircle } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { BsYoutube } from "react-icons/bs";
 import { useState } from "react";
+import DestinationCard from "@/components/DestinationCard";
 
 export default function Profile() {
-  const { given_name, username, picture, family_name, email, description } =
-    useUser();
+  const {
+    given_name,
+    username,
+    picture,
+    family_name,
+    email,
+    description,
+    destinations,
+  } = useUser();
   const [aboutme, setAboutMe] = useState(description);
   return (
     <section className="overflow-y-scroll overflow-x-hidden">
@@ -91,7 +99,10 @@ export default function Profile() {
           <span className="font-bold text-slate-900 text-lg mb-2">
             Destinations
           </span>
-          <div className=""></div>
+          <div className="">
+            {destinations?.map((dest: { name: any; }) => dest.name)}
+            <DestinationCard />
+          </div>
         </div>
       </div>
     </section>

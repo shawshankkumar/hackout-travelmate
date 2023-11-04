@@ -68,14 +68,14 @@ export default function Calendar() {
                 <CardTitle className="font-bold flex flex-col lg:flex-row items-start gap-4 lg:justify-between lg:items-center">
                   <div className="flex items-center justify-start gap-6">
                     <Checkbox
-                      id="terms"
+                      id={day.day}
                       checked={day.available}
                       onCheckedChange={() => {
                         day.availableFunction((prev) => !prev);
                       }}
                     />
                     <label
-                      htmlFor="terms"
+                      htmlFor={day.day}
                       className="text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
                       {day.day}
@@ -85,7 +85,10 @@ export default function Calendar() {
                     <div className="flex w-full lg:w-[70%] justify-between lg:justify-end lg:gap-4 items-center">
                       <div className="w-[45%] lg:w-[32%]">
                         <Select defaultValue={timeArray[0]}>
-                          <SelectTrigger id="area" className="text-xs lg:text-sm">
+                          <SelectTrigger
+                            id={`${day.day}+from`}
+                            className="text-xs lg:text-sm"
+                          >
                             <SelectValue placeholder="Select" />
                           </SelectTrigger>
                           <SelectContent className="overflow-y-scroll h-52">
@@ -100,7 +103,10 @@ export default function Calendar() {
                       <div className="h-[2px] w-3 bg-slate-300"></div>
                       <div className="w-[45%] lg:w-[32%]">
                         <Select defaultValue={timeArray[2]}>
-                          <SelectTrigger id="area" className="text-xs lg:text-sm">
+                          <SelectTrigger
+                            id={`${day.day}+to`}
+                            className="text-xs lg:text-sm"
+                          >
                             <SelectValue placeholder="Select" />
                           </SelectTrigger>
                           <SelectContent className="overflow-y-scroll h-52">
