@@ -6,4 +6,5 @@ type User = {
   createdAt: string;
   username: string;
   description: string;
+  services: any[];
 }

@@ -1,6 +1,7 @@
 import Booking from "@/components/Booking";
 import Calendar from "@/components/Calendar";
 import Profile from "@/components/Profile";
+import Services from "@/components/Services";
 import { dashboardSectionType, dashboardSections } from "@/utils/constants";
 
 export default function GetSection({
@@ -14,7 +15,7 @@ export default function GetSection({
     case "bookings":
       return <Booking />;
     case "services":
-      return <div>services section</div>;
+      return <Services />;
     case "calendar":
       return <Calendar />;
     case "payments":

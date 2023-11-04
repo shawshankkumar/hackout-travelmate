@@ -18,6 +18,7 @@ export default function UserPage({ data }: { data: any }) {
     description,
     destinations,
   } = data.userData;
+  
   return (
     <main className="mx-3 py-3 lg:mx-0 lg:py-0 lg:flex">
       <section className="hidden lg:flex lg:flex-col w-3/12 bg-purple-200 h-screen px-7 justify-center">
