@@ -30,7 +30,7 @@ export default function BookingCard() {
         <CardDescription></CardDescription>
       </CardHeader>
       <Separator />
-      <CardFooter className="h-12 mt-4 flex justify-between items-center">
+      <CardFooter className="h-18 w-full lg:h-12 mt-4 flex flex-col items-start gap-4 lg:flex-row lg:justify-between lg:items-center">
         <div className="flex items-center h-full">
           <span className="flex items-center gap-2">30 Min</span>
           <Separator orientation="vertical" className="mx-2" />
@@ -39,10 +39,10 @@ export default function BookingCard() {
             500
           </span>
           <Separator orientation="vertical" className="mx-2" />
-          <span className="flex items-center">7:00 PM</span>
+          <span className="flex items-center">7:00 AM</span>
         </div>
-        <a href={`https://meet.google.com/bpo-wdno-xho`}>
-          <Button size={"sm"}>Visit Meet</Button>
+        <a href={`https://meet.google.com/bpo-wdno-xho`} className="w-full lg:w-fit">
+          <Button size={"sm"} className="w-full lg:w-fit">Visit Meet</Button>
         </a>
       </CardFooter>
     </Card>
