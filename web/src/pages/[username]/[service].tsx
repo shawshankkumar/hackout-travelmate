@@ -43,7 +43,7 @@ export default function Service({
         <main className="flex items-center justify-center bg-purple-200 h-screen">
           <div className="flex flex-col md:flex-row bg-white w-[300px] md:min-h-[250px] md:w-[700px] mx-auto rounded-lg">
             <div className="px-7 py-8 clip-circle" />
-            {showPayment ? <p>do payment and redirect</p> : (
+            {showPayment ? <p className="grow text-xl self-center text-center font-bold">do payment and redirect</p> : (
               <>
                 <div className="flex flex-col gap-2 px-6 py-8 md:w-[300px] border-b-2 md:border-r-2 md:border-b-0 border-dashed text-black/70">
                   <Logo className="text-black" size={24} />
