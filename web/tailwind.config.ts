@@ -43,6 +43,7 @@ const config: Config = {
           backgroundDark: "#121212",
           backgroundLight: "#BBBCD8",
           pink: "#BF5AE0",
+          cream: "#f8ceca"
         },
       },
     },
