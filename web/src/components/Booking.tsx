@@ -1,3 +1,5 @@
 export default function Booking() {
-  return <section></section>;
+  return <section>
+    
+  </section>;
 }

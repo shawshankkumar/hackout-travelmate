@@ -34,12 +34,15 @@ const config: Config = {
         },
       },
       animation: {
+        "spin": "spin 0.45s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
         travelMate: {
           background: "#F8EEFF",
+          backgroundDark: "#121212",
+          backgroundLight: "#BBBCD8",
           pink: "#BF5AE0",
         },
       },
