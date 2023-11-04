@@ -34,6 +34,12 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      colors: {
+        travelMate: {
+          background: "#F8EEFF",
+          pink: "#BF5AE0",
+        },
+      },
     },
   },
   plugins: [],
