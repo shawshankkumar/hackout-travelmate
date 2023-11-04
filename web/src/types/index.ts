@@ -4,4 +4,5 @@ type User = {
   family_name: string;
   picture: string;
   createdAt: string;
+  username: string;
 }
