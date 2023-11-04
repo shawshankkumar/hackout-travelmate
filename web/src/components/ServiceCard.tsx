@@ -31,7 +31,7 @@ export default function ServiceCard({
   nextAvailableDate,
 }: ServiceCardProps) {
   const date = new Date(nextAvailableDate);
-  const formattedDate = format(date, "d MMM yyyy");
+  const formattedDate = format(date, "d MMM");
   const formattedTime = format(date, "h:mm a");
 
   return (

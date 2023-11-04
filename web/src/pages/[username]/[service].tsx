@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BsFillCalendarEventFill } from "react-icons/bs";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import TimeSlotPicker from "@/components/TimeSlotPicker";
 
@@ -74,7 +74,13 @@ export default function Service({
             required={true}
             className="rounded-md border mt-3 self-center"
           />
-          {date && <TimeSlotPicker startTime="10:00" endTime="12:00" timeInterval={30} />}
+          {date && (
+            <TimeSlotPicker
+              startTime="10:00"
+              endTime="12:00"
+              timeInterval={30}
+            />
+          )}
         </section>
       </section>
       <section className="mx-3 lg:mx-0 md:max-w-[80%] md:mx-auto lg:min-w-[30%] lg:max-w-[50%] lg:p-8 lg:rounded-xl bg-white">
@@ -87,7 +93,13 @@ export default function Service({
             required={true}
             className="rounded-md border mt-3 self-center"
           />
-          {date && <TimeSlotPicker startTime="10:00" endTime="12:00" timeInterval={30} />}
+          {date && (
+            <TimeSlotPicker
+              startTime="10:00"
+              endTime="12:00"
+              timeInterval={30}
+            />
+          )}
         </section>
       </section>
     </main>
