@@ -45,6 +45,14 @@ export default function SignIn() {
         <title>Sign In | travelMate</title>
       </Head>
       <div className="flex flex-col-reverse lg:flex-row grow">
+        <Image
+          src="/images/place2.jpg"
+          alt="image"
+          width={4366}
+          height={2911}
+          className="lg:w-[60vw] object-cover"
+          loading="eager"
+        />
         <div className="flex flex-col gap-2 items-center justify-center bg-black/90 grow">
           <Logo className="text-white text-3xl md:text-5xl my-10" size={48} />
           <p className="text-xl font-bold text-white">Get Started Now!</p>
@@ -62,14 +70,6 @@ export default function SignIn() {
             </Button>
           </div>
         </div>
-        <Image
-          src="/images/place2.jpg"
-          alt="image"
-          width={4366}
-          height={2911}
-          className="lg:w-[60vw]"
-          loading="eager"
-        />
       </div>
     </>
   );
