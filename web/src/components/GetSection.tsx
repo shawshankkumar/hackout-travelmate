@@ -1,11 +1,17 @@
+import Booking from "@/components/Booking";
+import Profile from "@/components/Profile";
 import { dashboardSectionType, dashboardSections } from "@/utils/constants";
 
-export default function GetSection({ section }: { section: dashboardSectionType }) {
+export default function GetSection({
+  section,
+}: {
+  section: dashboardSectionType;
+}) {
   switch (section) {
     case "profile":
-      return <div>profile section</div>;
+      return <Profile />;
     case "bookings":
-      return <div>bookings section</div>;
+      return <Booking />;
     case "services":
       return <div>services section</div>;
     case "calendar":

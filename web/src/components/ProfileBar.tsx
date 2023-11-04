@@ -5,7 +5,7 @@ export default function ProfileBar() {
   const { given_name, username } = useUser();
 
   return (
-    <section className="p-3 border-2 border-slate-200/80 rounded-lg w-full flex items-center justify-between sticky top-0 bg-white">
+    <section className="p-3 border-2 border-slate-200/80 rounded-lg w-full flex items-center justify-between sticky top-0 bg-white z-50">
       <div className="">
         <h1 className="font-bold text-lg lg:text-3xl text-slate-800">
           Hi, {given_name}

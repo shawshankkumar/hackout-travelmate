@@ -24,6 +24,6 @@ export default function useUser() {
     });
 
   }, [router, token])
-
+console.log(user);
   return user;
 }

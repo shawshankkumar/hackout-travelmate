@@ -9,7 +9,7 @@ export default function DashboardSideBar({
 }) {
   return (
     <>
-      <aside className="h-screen w-[15%] border-2 border-r-slate-200 hidden lg:flex lg:flex-col">
+      <aside className="h-screen w-[15%] border-2 border-r-slate-200 hidden lg:flex lg:flex-col sticky top-0 left-0">
         <CompanyLogo className="my-4 mx-2" />
         <div className="px-3 w-full mt-10">
           {Object.entries(dashboardSections).map(([key, value]) => (
