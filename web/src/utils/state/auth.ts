@@ -12,7 +12,7 @@ export interface AuthSlice {
   auth: AuthStateType;
   addToken: (newAuth: AuthStateType) => void;
   getToken: () => AuthStateType;
-  removeToken: () => void;
+  flushToken: () => void;
 }
 
 export const createAuthSlice: StateCreator<AuthSlice, [], [], AuthSlice> = (
@@ -29,7 +29,7 @@ export const createAuthSlice: StateCreator<AuthSlice, [], [], AuthSlice> = (
   },
   addToken: (newAuth: AuthStateType) => set((state) => ({ auth: newAuth })),
   getToken: () => get().auth,
-  removeToken: () =>
+  flushToken: () =>
     set((state) => ({
       auth: {
         access_token: "",
