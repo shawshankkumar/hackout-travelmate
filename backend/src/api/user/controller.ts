@@ -1,6 +1,12 @@
 import { RouteHandler } from "fastify";
-import { FetchSessionParamType, FetchUserHeaderType, UsernameType } from "@/api/user/models";
+import {
+  FetchSessionParamType,
+  FetchUserHeaderType,
+  UsernameType,
+  ConfirmBookingSchema,
+} from "@/api/user/models";
 import DB from "@/loaders/mongo";
+import { ZodError } from "zod";
 
 export const handleUserFetch: RouteHandler<{ Headers: FetchUserHeaderType }> =
   async function (request, reply) {
@@ -87,60 +93,86 @@ export const handleUserProfileFetch: RouteHandler<{ Params: UsernameType }> =
     });
   };
 
-export const handleUserSessionFetch: RouteHandler<{ Params: FetchSessionParamType }> =
-  async function (request, reply) {
-    const { username, sessionId } = request.params;
-    const data = await (await DB()).collection("users").findOne({ username });
-    if (!data) {
-      throw {
-        message: "User not found",
-        status_code: 404,
-      };
-    }
-    reply.status(200).send({
-      message: "User Data Fetched!",
-      userData: data,
-      status: true,
-      sessionId,
-      serviceData: {
-        enabled: true,
-        amount: 200,
-        timeslot: 30,
-        description:
-          "Hey there! I am your go-to Indian travel influencer, on a thrilling journey to uncover the wonders of my incredible homeland. Join me as I traverse the diverse landscapes, immerse in rich cultures, and unveil hidden treasures that make India truly extraordinary. Through my lens, I share not just destinations, but the soul-stirring stories behind them, offering travel enthusiasts a front-row seat to the beauty and magic that is uniquely India. Ready to explore together?",
-        name: "Hangout with me",
-        id: "xyz",
-        next_available: 1699216993000,
-        availability: {
-          sun: {
-            enabled: true,
-            slots: ["1600", "1630", "1700", "1730"],
-          },
-          mon: {
-            enabled: true,
-            slots: ["1600", "1630", "1700", "1730"],
-          },
-          tue: {
-            enabled: true,
-            slots: ["1600", "1630", "1700", "1730"],
-          },
-          wed: {
-            enabled: false,
-            slots: ["1600", "1630", "1700", "1730"],
-          },
-          thur: {
-            enabled: true,
-            slots: ["1600", "1630", "1700", "1730"],
-          },
-          fri: {
-            enabled: true,
-            slots: ["1600", "1630", "1700", "1730"],
-          },
-          sat: {
-            enabled: true,
-            slots: ["1600", "1630", "1700", "1730"],
-          },
+export const handleUserSessionFetch: RouteHandler<{
+  Params: FetchSessionParamType;
+}> = async function (request, reply) {
+  const { username, sessionId } = request.params;
+  const data = await (await DB()).collection("users").findOne({ username });
+  if (!data) {
+    throw {
+      message: "User not found",
+      status_code: 404,
+    };
+  }
+  reply.status(200).send({
+    message: "User Data Fetched!",
+    userData: data,
+    status: true,
+    sessionId,
+    serviceData: {
+      enabled: true,
+      amount: 200,
+      timeslot: 30,
+      description:
+        "Hey there! I am your go-to Indian travel influencer, on a thrilling journey to uncover the wonders of my incredible homeland. Join me as I traverse the diverse landscapes, immerse in rich cultures, and unveil hidden treasures that make India truly extraordinary. Through my lens, I share not just destinations, but the soul-stirring stories behind them, offering travel enthusiasts a front-row seat to the beauty and magic that is uniquely India. Ready to explore together?",
+      name: "Hangout with me",
+      id: "xyz",
+      next_available: 1699216993000,
+      availability: {
+        sun: {
+          enabled: true,
+          slots: ["1600", "1630", "1700", "1730"],
+        },
+        mon: {
+          enabled: true,
+          slots: ["1600", "1630", "1700", "1730"],
+        },
+        tue: {
+          enabled: true,
+          slots: ["1600", "1630", "1700", "1730"],
+        },
+        wed: {
+          enabled: false,
+          slots: ["1600", "1630", "1700", "1730"],
+        },
+        thur: {
+          enabled: true,
+          slots: ["1600", "1630", "1700", "1730"],
+        },
+        fri: {
+          enabled: true,
+          slots: ["1600", "1630", "1700", "1730"],
+        },
+        sat: {
+          enabled: true,
+          slots: ["1600", "1630", "1700", "1730"],
         },
       },
-    });
+    },
+  });
+};
+
+export const handleBookingConfirm: RouteHandler<{ Headers: FetchUserHeaderType }> =
+  async function (request, reply) {
+    try {
+      const bookerData = reply.locals.user;
+      const data = request.body;
+      const parsedDara = ConfirmBookingSchema.parse(data);
+      await (await DB())
+        .collection("bookings")
+        .insertOne({
+          bookerUsername: (bookerData as any).username,
+          ...parsedDara,
+          createdAt: +new Date(),
+        });
+      reply.status(200).send({
+        message: "Data stored successfully!",
+        status: true,
+      });
+    } catch (err) {
+      throw {
+        message: (err as ZodError).message ?? "Failed to validate data",
+        status_code: 421,
+      };
+    }
   };
