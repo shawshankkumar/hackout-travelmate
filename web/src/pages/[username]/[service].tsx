@@ -65,19 +65,20 @@ export default function Service({
             together?
           </p>
         </section>
-        <section className="flex flex-col lg:hidden mt-5">
+        <section className="flex flex-col md:hidden mt-5 mx-10">
           <h2 className=" font-bold text-lg">Book your session</h2>
           <Calendar
             mode="single"
             selected={date}
             onSelect={setDate}
             required={true}
-            className="rounded-md border mt-3 w-fit"
+            className="rounded-md border mt-3 self-center"
           />
+          {date && <TimeSlotPicker startTime="10:00" endTime="12:00" timeInterval={30} />}
         </section>
       </section>
       <section className="mx-3 lg:mx-0 md:max-w-[80%] md:mx-auto lg:min-w-[20%] lg:max-w-[50%] lg:p-8 lg:rounded-xl bg-white">
-        <section className="hidden lg:flex lg:flex-col">
+        <section className="hidden md:flex md:flex-col">
           <h2 className="font-bold text-lg">Book your session</h2>
           <Calendar
             mode="single"
@@ -86,7 +87,7 @@ export default function Service({
             required={true}
             className="rounded-md border mt-3 self-center"
           />
-          <TimeSlotPicker startTime="10:00" endTime="12:00" timeInterval={30} />
+          {date && <TimeSlotPicker startTime="10:00" endTime="12:00" timeInterval={30} />}
         </section>
       </section>
     </main>
