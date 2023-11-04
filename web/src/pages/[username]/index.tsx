@@ -5,8 +5,12 @@ import { GetServerSidePropsContext } from "next";
 import { BsYoutube } from "react-icons/bs";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { BiLogoFacebookCircle } from "react-icons/bi";
+import axios from "axios";
+import { useRouter } from "next/router";
 
-export default function UserPage({ username }: { username: string }) {
+export default function UserPage({ data }: { data: any }) {
+  const username = data.userData.username;
+  const services = data.userData.services;
   return (
     <main className="mx-3 py-3 lg:mx-0 lg:py-0 lg:flex">
       <section className="hidden lg:flex lg:flex-col w-3/12 bg-purple-200 h-screen px-7 justify-center">
@@ -33,9 +37,9 @@ export default function UserPage({ username }: { username: string }) {
             <li>Kerala</li>
           </ul>
           <div className="flex gap-4 items-center mt-10">
-            <BsYoutube className="h-7 w-7"  />
-            <AiFillInstagram className="h-7 w-7"  />
-            <BiLogoFacebookCircle className="h-7 w-7"  />
+            <BsYoutube className="h-7 w-7" />
+            <AiFillInstagram className="h-7 w-7" />
+            <BiLogoFacebookCircle className="h-7 w-7" />
           </div>
         </div>
       </section>
@@ -64,30 +68,22 @@ export default function UserPage({ username }: { username: string }) {
         </div>
       </section>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-4 h-fit lg:w-3/4 lg:p-5">
-        <ServiceCard
-          serviceId={1234}
-          username={username}
-          serviceTitle={username}
-          serviceDescription="Service Description"
-          servicePrice={0}
-          serviceTime="30"
-        />
-        <ServiceCard
-          serviceId={1234}
-          username={username}
-          serviceTitle={username}
-          serviceDescription="Service Description"
-          servicePrice={0}
-          serviceTime="30"
-        />
-        <ServiceCard
-          serviceId={1234}
-          username={username}
-          serviceTitle={username}
-          serviceDescription="Service Description"
-          servicePrice={0}
-          serviceTime="30"
-        />
+        {services.map((service: any) => {
+          if (service.enabled) {
+            return (
+              <ServiceCard
+                key={service.id}
+                serviceId={service.id}
+                username={username}
+                serviceTitle={service.name}
+                serviceDescription={service.description}
+                servicePrice={service.amount}
+                serviceTime={service.timeslot}
+                nextAvailableDate={service.next_available}
+              />
+            );
+          }
+        })}
       </section>
     </main>
   );
@@ -95,10 +91,22 @@ export default function UserPage({ username }: { username: string }) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { username } = context.query;
-
-  return {
-    props: {
-      username,
-    },
-  };
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/user/" + username
+    );
+    const data = response.data;
+    return {
+      props: { data },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/not-found",
+      },
+      props: {},
+    };
+  }
 }

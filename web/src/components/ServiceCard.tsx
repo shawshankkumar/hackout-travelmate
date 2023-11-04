@@ -6,10 +6,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { VscTriangleRight } from "react-icons/vsc";
 import { BiRupee } from "react-icons/bi";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { format } from "date-fns";
 
 type ServiceCardProps = {
   serviceTitle: string;
@@ -18,6 +18,7 @@ type ServiceCardProps = {
   serviceTime: string;
   username: string;
   serviceId: number;
+  nextAvailableDate: number;
 };
 
 export default function ServiceCard({
@@ -27,15 +28,23 @@ export default function ServiceCard({
   serviceDescription,
   servicePrice,
   serviceTime,
+  nextAvailableDate,
 }: ServiceCardProps) {
+  const date = new Date(nextAvailableDate);
+  const formattedDate = format(date, "d MMM yyyy");
+  const formattedTime = format(date, "h:mm a");
+
   return (
     <Card className="">
       <CardHeader>
-        <CardTitle className="font-bold flex justify-between items-center">
-          <span>{serviceTitle}</span>
-          <span className="p-1 rounded-full border-black/40 border-[2px] dark:border-white/40">
-            <VscTriangleRight />
-          </span>
+        <CardTitle className="font-bold flex justify-between items-start">
+          <span className="pt-2">{serviceTitle}</span>
+          <div className="flex flex-col text-[12px] border border-slate-200 p-2 rounded-md">
+            <span className="opacity-70 font-medium">Next Available</span>
+            <span className="font-semibold mt-1">
+              {formattedTime}, {formattedDate}
+            </span>
+          </div>
         </CardTitle>
         <CardDescription>{serviceDescription}</CardDescription>
       </CardHeader>

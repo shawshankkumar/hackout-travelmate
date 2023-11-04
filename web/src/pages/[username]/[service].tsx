@@ -36,7 +36,7 @@ export default function Service({
           <h1 className="font-extrabold text-xl mt-5">Ladakh Bike Trip</h1>
           <div className="flex justify-between items-center my-5">
             <div className="flex flex-col text-xs">
-              <span className=" opacity-70">Next Available</span>
+              <span className="opacity-70">Next Available</span>
               <span className="font-semibold">3:00 PM, 20th Aug</span>
             </div>
             <Button size={"sm"}>Confirm Details</Button>
