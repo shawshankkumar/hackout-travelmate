@@ -19,5 +19,5 @@ We aim to build a product which can make travelling more personal. How often do 
 3. [Harshit Singh](https://github.com/whiletrueee)
 4. [Shashank Kumar](https://github.com/shawshankkumar)
 
-Frontend URL: https://hackout.shawshankkumar.me </br>
-Backend URL: http://api-hackout.shawshankkumar.me
+Frontend URL(Vercel): https://hackout.shawshankkumar.me </br>
+Backend URL(AWS ec2): http://hack-api.shawshankkumar.me
