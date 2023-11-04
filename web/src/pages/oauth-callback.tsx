@@ -12,7 +12,7 @@ export default function SignIn({ data }: any) {
 
   useEffect(() => {
     addToken(auth_data)
-    router.push("/dashboard");
+    router.push("/dashboard/profile", undefined, { shallow: true });
   }, [addToken, auth_data, router]);
 
   return (
