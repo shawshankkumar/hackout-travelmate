@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="flex flex-1 bg-travelMate-background">
+    <div className="flex flex-1 max-h-screen bg-travelMate-background">
       <div className="w-full lg:w-1/2 p-5 lg:p-20 flex flex-col items-start justify-center gap-10 lg:gap-20">
         <div className="w-full">
           <div className="w-full max-w-[400px] lg:max-w-none lg:min-w-[500px] lg:w-2/3 bg-travelMate-pink rounded-full p-2 pr-4 flex justify-between items-center">

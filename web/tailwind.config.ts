@@ -40,6 +40,8 @@ const config: Config = {
       colors: {
         travelMate: {
           background: "#F8EEFF",
+          backgroundDark: "#121212",
+          backgroundLight: "#BBBCD8",
           pink: "#BF5AE0",
         },
       },
