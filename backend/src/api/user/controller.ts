@@ -176,10 +176,41 @@ export const handleBookingConfirm: RouteHandler<{
   }
 };
 
-export const handleDasboardFetch: RouteHandler<{
-}> = async function (request, reply) {
-  reply.status(200).send({
-    message: "User Data Fetched!",
-    status: true,
-  });
-};
+export const handleDasboardFetch: RouteHandler<{ Params: { slug: string } }> =
+  async function (request, reply) {
+    const { slug } = request.params;
+    let data = {};
+    switch (slug) {
+      case "profile":
+        data = reply.locals.user as any;
+        break;
+      case "payments":
+        data = await (
+          await DB()
+        )
+          .collection("bookings")
+          .find({
+            bookerUsername: (reply.locals.user as any).username,
+          })
+          .toArray();
+        break;
+        case "bookings":
+            data = await (
+              await DB()
+            )
+              .collection("bookings")
+              .find({
+                bookerUsername: (reply.locals.user as any).username,
+              })
+              .toArray();
+            break;
+      default:
+        throw { status_code: 404, message: "invalid slug" };
+    }
+    reply.status(200).send({
+      message: "User Data Fetched!",
+      status: true,
+      type: slug,
+      data,
+    });
+  };

@@ -7,7 +7,7 @@ const plugin: FastifyPluginAsync = async (server) => {
   server.get("/:username", handleUserProfileFetch);
   server.get("/:username/:sessionId", handleUserSessionFetch);
   server.post("/booking/confirm", { preHandler: [authMiddleware] }, handleBookingConfirm);
-  server.post("/dashboard/:slug", { preHandler: [authMiddleware] }, handleDasboardFetch);
+  server.get("/dashboard/:slug", { preHandler: [authMiddleware] }, handleDasboardFetch);
 };
 
 export default plugin;
