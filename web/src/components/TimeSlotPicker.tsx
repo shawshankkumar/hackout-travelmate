@@ -1,5 +1,6 @@
 // components/TimeSlotPicker.tsx
 import React, { useState } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface TimeSlotPickerProps {
   startTime: string;
@@ -22,9 +23,10 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
 
     while (currentTime <= endTimeObj) {
       timeSlots.push(
-        currentTime.toLocaleTimeString([], {
+        currentTime.toLocaleTimeString('en-IN', {
           hour: "2-digit",
           minute: "2-digit",
+          hour12: true,
         })
       );
       currentTime.setMinutes(currentTime.getMinutes() + timeInterval);
@@ -40,15 +42,17 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
   };
 
   return (
-    <div>
-      <p>Select a time slot:</p>
-      <ul>
-        {generateTimeSlots().map((time) => (
-          <li key={time} onClick={() => handleTimeSlotSelect(time)}>
-            {time}
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col mt-5 gap-2">
+      <p className="text-lg font-bold">Select a time slot</p>
+      <ScrollArea className="h-[200px]">
+        <ul className="flex flex-col gap-2">
+          {generateTimeSlots().map((time) => (
+            <li key={time} onClick={() => handleTimeSlotSelect(time)} className={`w-5/6 mx-auto p-2 rounded-lg text-center cursor-pointer ${selectedTime === time ? "bg-black text-white" : "bg-gray-200"}`}>
+              {time}
+            </li>
+          ))}
+        </ul>
+      </ScrollArea>
       <p>Selected Time: {selectedTime}</p>
     </div>
   );
