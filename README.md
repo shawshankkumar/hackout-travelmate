@@ -21,3 +21,12 @@ We aim to build a product which can make travelling more personal. How often do 
 
 Frontend URL(Vercel): https://hackout.shawshankkumar.me </br>
 Backend URL(AWS ec2): https://hack-api.shawshankkumar.me
+Backend docs URL (postman): https://documenter.getpostman.com/view/14132958/2s9YXe8QTo
+
+## Deploy:
+run deploy.sh
+
+or
+pnpm i
+pnpm build
+pnpm start
