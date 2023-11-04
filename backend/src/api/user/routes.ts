@@ -1,5 +1,5 @@
 import { FastifyPluginAsync } from "fastify";
-import { handleUserFetch, handleUserProfileFetch, handleUserSessionFetch, handleBookingConfirm } from "@/api/user/controller";
+import { handleUserFetch, handleUserProfileFetch, handleUserSessionFetch, handleBookingConfirm, handleDasboardFetch } from "@/api/user/controller";
 import { authMiddleware } from "@/utils/middlewares/tokenVerify";
 
 const plugin: FastifyPluginAsync = async (server) => {
@@ -7,6 +7,7 @@ const plugin: FastifyPluginAsync = async (server) => {
   server.get("/:username", handleUserProfileFetch);
   server.get("/:username/:sessionId", handleUserSessionFetch);
   server.post("/booking/confirm", { preHandler: [authMiddleware] }, handleBookingConfirm);
+  server.post("/dashboard/:slug", { preHandler: [authMiddleware] }, handleDasboardFetch);
 };
 
 export default plugin;

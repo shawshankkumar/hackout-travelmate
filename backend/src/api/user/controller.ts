@@ -152,27 +152,34 @@ export const handleUserSessionFetch: RouteHandler<{
   });
 };
 
-export const handleBookingConfirm: RouteHandler<{ Headers: FetchUserHeaderType }> =
-  async function (request, reply) {
-    try {
-      const bookerData = reply.locals.user;
-      const data = request.body;
-      const parsedDara = ConfirmBookingSchema.parse(data);
-      await (await DB())
-        .collection("bookings")
-        .insertOne({
-          bookerUsername: (bookerData as any).username,
-          ...parsedDara,
-          createdAt: +new Date(),
-        });
-      reply.status(200).send({
-        message: "Data stored successfully!",
-        status: true,
-      });
-    } catch (err) {
-      throw {
-        message: (err as ZodError).message ?? "Failed to validate data",
-        status_code: 421,
-      };
-    }
-  };
+export const handleBookingConfirm: RouteHandler<{
+  Headers: FetchUserHeaderType;
+}> = async function (request, reply) {
+  try {
+    const bookerData = reply.locals.user;
+    const data = request.body;
+    const parsedDara = ConfirmBookingSchema.parse(data);
+    await (await DB()).collection("bookings").insertOne({
+      bookerUsername: (bookerData as any).username,
+      ...parsedDara,
+      createdAt: +new Date(),
+    });
+    reply.status(200).send({
+      message: "Data stored successfully!",
+      status: true,
+    });
+  } catch (err) {
+    throw {
+      message: (err as ZodError).message ?? "Failed to validate data",
+      status_code: 421,
+    };
+  }
+};
+
+export const handleDasboardFetch: RouteHandler<{
+}> = async function (request, reply) {
+  reply.status(200).send({
+    message: "User Data Fetched!",
+    status: true,
+  });
+};
