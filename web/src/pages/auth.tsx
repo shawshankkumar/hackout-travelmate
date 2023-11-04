@@ -2,11 +2,20 @@ import Head from "next/head";
 import Image from "next/image";
 import qs from "querystring";
 import Logo from "@/components/Logo";
+import useAuth from "@/hooks/use-auth";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
 
 export default function SignIn() {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/dashboard/profile", undefined, { shallow: true });
+    }
+  }, [isAuthenticated, router]);
 
   const handleSignIn = async () => {
     try {
