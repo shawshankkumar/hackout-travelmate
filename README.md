@@ -20,4 +20,4 @@ We aim to build a product which can make travelling more personal. How often do 
 4. [Shashank Kumar](https://github.com/shawshankkumar)
 
 Frontend URL(Vercel): https://hackout.shawshankkumar.me </br>
-Backend URL(AWS ec2): http://hack-api.shawshankkumar.me
+Backend URL(AWS ec2): https://hack-api.shawshankkumar.me
