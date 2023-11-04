@@ -67,22 +67,24 @@ export default function Profile() {
           </span>
           <div className="mt-4 flex flex-col gap-2 max-w-xl">
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
-              <AiFillInstagram className="h-16 w-16" />
+              <AiFillInstagram className="h-12 w-12" />
               <Input type="email" placeholder="Instagram" />
             </div>
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
-              <BiLogoFacebookCircle className="h-16 w-16" />
+              <BiLogoFacebookCircle className="h-12 w-12" />
               <Input type="email" placeholder="Facebook" />
             </div>
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
-              <BsYoutube className="h-16 w-16" />
+              <BsYoutube className="h-12 w-12" />
               <Input type="email" placeholder="Youtube" />
             </div>
             <div className="flex w-full max-w-sm items-center space-x-2 px-1">
-              <FaXTwitter className="h-16 w-16" />
+              <FaXTwitter className="h-12 w-12" />
               <Input type="email" placeholder="Twitter" />
             </div>
-            <Button type="submit" className="w-[67%] mt-2">+ Add</Button>
+            <Button type="submit" className="w-[67%] mt-2">
+              + Add
+            </Button>
           </div>
         </div>
         <div className="mt-8">
