@@ -8,7 +8,7 @@ export async function findUserProfileGoogle(accessToken: string) {
     const userData = await (await DB())
       .collection("users")
       .findOne({ email: user.email });
-    const username = slugify(user.email, {
+    const username = slugify(user.email.split("@")[0], {
       replacement: "-",
       remove: /[*+~.()'"!:@]/g,
       lower: true,
@@ -22,6 +22,15 @@ export async function findUserProfileGoogle(accessToken: string) {
         createdAt: new Date(),
         updatedAt: new Date(),
         username,
+        socials: {
+          twitter: "",
+          instagram: "",
+          facebook: "",
+          youtube: "",
+        },
+        description: "",
+        destinations: [],
+        services: [],
       });
     }
     return {

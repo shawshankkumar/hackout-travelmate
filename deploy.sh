@@ -1,3 +1,4 @@
+git pull
 cd backend
 pnpm i
 pnpm run build

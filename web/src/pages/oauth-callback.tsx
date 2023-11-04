@@ -12,8 +12,8 @@ export default function SignIn({ data }: any) {
 
   useEffect(() => {
     addToken(auth_data)
-    router.push("/");
-  }, []);
+    router.push("/dashboard");
+  }, [addToken, auth_data, router]);
 
   return (
     <>

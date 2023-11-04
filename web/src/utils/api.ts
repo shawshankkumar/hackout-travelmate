@@ -9,7 +9,26 @@ export const getSignInData = async (
 ) => {
   try {
     const res = await apiInstance.get(
-      `/auth/${encodeURIComponent(token)}`
+      "/auth", {
+        headers: {
+          'x-auth-token': token,
+        },
+      }
+    );
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getUserData = async (token: string) => {
+  try {
+    const res = await apiInstance.get(
+      "/user/me", {
+        headers: {
+          Authorization: token,
+        },
+      }
     );
     return res.data;
   } catch (err) {

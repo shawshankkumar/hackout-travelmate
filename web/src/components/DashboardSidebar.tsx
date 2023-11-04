@@ -1,0 +1,32 @@
+import CompanyLogo from "@/components/CompanyLogo";
+import { dashboardSectionType, dashboardSections } from "@/utils/constants";
+import Link from "next/link";
+
+export default function DashboardSideBar({
+  active,
+}: {
+  active: dashboardSectionType;
+}) {
+  return (
+    <>
+      <aside className="h-screen w-[15%] border-2 border-r-slate-200 hidden lg:flex lg:flex-col">
+        <CompanyLogo className="my-4 mx-2" />
+        <div className="px-3 w-full mt-10">
+          {Object.entries(dashboardSections).map(([key, value]) => (
+            <Link key={key} href={key}>
+              <div
+                className={`py-2 px-4 w-full text-lg my-1 font-semibold rounded-md transition-all duration-300 ease-in  ${
+                  active === key
+                    ? " bg-slate-700 text-white"
+                    : "bg-white text-slate-500 hover:bg-slate-200"
+                }`}
+              >
+                {value}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </aside>
+    </>
+  );
+}
