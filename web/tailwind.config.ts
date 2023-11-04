@@ -20,6 +20,9 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        mono: ["Sometype Mono", "sans-serif"],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
