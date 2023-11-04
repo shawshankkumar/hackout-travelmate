@@ -24,7 +24,7 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
 
     while (currentTime <= endTimeObj) {
       timeSlots.push(
-        currentTime.toLocaleTimeString('en-IN', {
+        currentTime.toLocaleTimeString("en-IN", {
           hour: "2-digit",
           minute: "2-digit",
           hour12: true,
@@ -46,9 +46,13 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
     <div className="flex flex-col mt-5 gap-2">
       <p className="text-lg font-bold">Select a time slot</p>
       <ScrollArea className="h-[200px]">
-        <ul className="flex flex-col gap-2">
+        <ul className="grid grid-cols-2 gap-3 mt-2">
           {generateTimeSlots().map((time) => (
-            <li key={time} onClick={() => handleTimeSlotSelect(time)} className={`w-5/6 mx-auto p-2 rounded-lg text-center cursor-pointer ${selected === time ? "bg-black text-white" : "bg-gray-200"}`}>
+            <li
+              key={time}
+              onClick={() => handleTimeSlotSelect(time)}
+              className={`w-5/6 mx-auto p-2 rounded-lg text-center cursor-pointer ${selected === time ? "bg-black text-white" : "bg-gray-200"}`}
+            >
               {time}
             </li>
           ))}

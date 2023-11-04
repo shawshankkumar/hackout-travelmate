@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import type { AppProps } from 'next/app'
 
