@@ -6,16 +6,17 @@ interface TimeSlotPickerProps {
   startTime: string;
   endTime: string;
   timeInterval: number;
+  selected?: string;
+  onSelect: (time: string) => void;
 }
 
 const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
   startTime,
   endTime,
   timeInterval,
+  selected,
+  onSelect,
 }) => {
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
-
-  // Function to generate time slots
   const generateTimeSlots = () => {
     const timeSlots = [];
     let currentTime = new Date(`2023-01-01 ${startTime}`);
@@ -37,7 +38,7 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
 
   // Handle time slot selection
   const handleTimeSlotSelect = (time: string) => {
-    setSelectedTime(time);
+    onSelect(time);
     // You can do something with the selected time, like triggering an action or updating state.
   };
 
@@ -47,13 +48,12 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
       <ScrollArea className="h-[200px]">
         <ul className="flex flex-col gap-2">
           {generateTimeSlots().map((time) => (
-            <li key={time} onClick={() => handleTimeSlotSelect(time)} className={`w-5/6 mx-auto p-2 rounded-lg text-center cursor-pointer ${selectedTime === time ? "bg-black text-white" : "bg-gray-200"}`}>
+            <li key={time} onClick={() => handleTimeSlotSelect(time)} className={`w-5/6 mx-auto p-2 rounded-lg text-center cursor-pointer ${selected === time ? "bg-black text-white" : "bg-gray-200"}`}>
               {time}
             </li>
           ))}
         </ul>
       </ScrollArea>
-      <p>Selected Time: {selectedTime}</p>
     </div>
   );
 };
