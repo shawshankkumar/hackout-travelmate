@@ -12,7 +12,11 @@ export default function SignIn({ data }: any) {
 
   useEffect(() => {
     addToken(auth_data)
-    router.push("/dashboard/profile", undefined, { shallow: true });
+    const redirect_to = localStorage.getItem("redirect_to");
+    if (redirect_to) {
+      localStorage.removeItem("redirect_to");
+    }
+    router.push(redirect_to ?? "/dashboard/profile", undefined, { shallow: true });
   }, [addToken, auth_data, router]);
 
   return (
