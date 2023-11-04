@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BsFillCalendarEventFill } from "react-icons/bs";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import TimeSlotPicker from "@/components/TimeSlotPicker";
