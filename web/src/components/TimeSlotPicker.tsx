@@ -6,16 +6,17 @@ interface TimeSlotPickerProps {
   startTime: string;
   endTime: string;
   timeInterval: number;
+  selected?: string;
+  onSelect: (time: string) => void;
 }
 
 const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
   startTime,
   endTime,
   timeInterval,
+  selected,
+  onSelect,
 }) => {
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
-
-  // Function to generate time slots
   const generateTimeSlots = () => {
     const timeSlots = [];
     let currentTime = new Date(`2023-01-01 ${startTime}`);
@@ -37,7 +38,7 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
 
   // Handle time slot selection
   const handleTimeSlotSelect = (time: string) => {
-    setSelectedTime(time);
+    onSelect(time);
     // You can do something with the selected time, like triggering an action or updating state.
   };
 
@@ -50,9 +51,7 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
             <li
               key={time}
               onClick={() => handleTimeSlotSelect(time)}
-              className={`p-2 rounded-md text-center cursor-pointer font-medium ${
-                selectedTime === time ? "bg-black text-white" : "bg-gray-100 hover:bg-gray-200" 
-              }`}
+              className={`w-5/6 mx-auto p-2 rounded-lg text-center cursor-pointer ${selected === time ? "bg-black text-white" : "bg-gray-200"}`}
             >
               {time}
             </li>
