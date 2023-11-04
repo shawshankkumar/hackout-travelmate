@@ -16,7 +16,7 @@ export default function Service({
   username: string;
   service: string;
 }) {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [date, setDate] = React.useState<Date>();
   return (
     <main className="my-3 lg:my-0 lg:h-screen lg:w-screen lg:bg-purple-200 lg:flex lg:justify-center lg:items-center lg:gap-12">
       <section className="mx-3 lg:mx-0 md:max-w-[80%] md:mx-auto lg:max-w-[46%] lg:p-8 lg:rounded-xl bg-white">
@@ -76,15 +76,15 @@ export default function Service({
           />
         </section>
       </section>
-      <section className="mx-3 lg:mx-0 md:max-w-[80%] md:mx-auto lg:max-w-[46%] lg:p-8 lg:rounded-xl bg-white">
+      <section className="mx-3 lg:mx-0 md:max-w-[80%] md:mx-auto lg:min-w-[20%] lg:max-w-[50%] lg:p-8 lg:rounded-xl bg-white">
         <section className="hidden lg:flex lg:flex-col">
-          <h2 className=" font-bold text-lg">Book your session</h2>
+          <h2 className="font-bold text-lg">Book your session</h2>
           <Calendar
             mode="single"
             selected={date}
             onSelect={setDate}
             required={true}
-            className="rounded-md border mt-3 w-fit"
+            className="rounded-md border mt-3 self-center"
           />
           <TimeSlotPicker startTime="10:00" endTime="12:00" timeInterval={30} />
         </section>
