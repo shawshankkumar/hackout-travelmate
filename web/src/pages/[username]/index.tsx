@@ -8,7 +8,6 @@ import { BiLogoFacebookCircle } from "react-icons/bi";
 import axios from "axios";
 
 export default function UserPage({ data }: { data: any }) {
-  console.log(data);
   const {
     given_name,
     family_name,
