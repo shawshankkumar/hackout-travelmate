@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import DB from "@/loaders/mongo";
 import slugify from "slugify";
+import { sendMail } from "../mailer";
 
 export async function findUserProfileGoogle(accessToken: string) {
   try {
@@ -32,6 +33,7 @@ export async function findUserProfileGoogle(accessToken: string) {
         destinations: [],
         services: [],
       });
+      await sendMail([user.email], "Welcome to TravelMate", "Welcome to TravelMate! Visit your dashboard and start booking sessions with your favourite travel influencers!")
     }
     return {
       id: user.id,
