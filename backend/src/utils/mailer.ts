@@ -5,7 +5,7 @@ const resend = new Resend(config.MAIL_KEY);
 
 export const sendMail = async (to: string[], subject: string, text: string) => {
   await resend.emails.send({
-    from: "TravelMate <hackout.shawshankkumar.me>",
+    from: "TravelMate <onboarding@resend.dev>",
     to: to,
     subject: subject,
     text: text,
