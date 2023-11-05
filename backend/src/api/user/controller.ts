@@ -251,9 +251,9 @@ export const handleDasboardFetch: RouteHandler<{ Params: { slug: string } }> =
   export const handleSingleUserFetch: RouteHandler<{ Headers: FetchUserHeaderType }> =
   async function (request, reply) {
     const data = await (await DB()).collection("users").find({name: {$regex: (request as any).body.name, $options: 'i'}}).toArray();
-    // const desData = await (await DB()).collection("users").find({'destinations.$': {$regex: (request as any).body.name, $options: 'i'}}).toArray();
-    const desData=[]
-const dataa=_.uniqBy(data.concat(desData), function (e) {
+    const caseInsensitiveRegex = new RegExp((request as any).body.name, "i");
+    const desData = await (await DB()).collection("users").find({destinations: {$in: [caseInsensitiveRegex]}}).toArray();
+  const dataa=_.uniqBy(data.concat(desData), function (e) {
   return e.email;
 });
     reply.status(200).send({
