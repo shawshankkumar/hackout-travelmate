@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BsFillCalendarEventFill } from "react-icons/bs";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { postSessionData } from "@/utils/api";
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
@@ -23,7 +24,7 @@ export default function Service({
   user: User;
   service: Service;
 }) {
-  const { name, picture } = useUser();
+  const { name, picture, token } = useUser();
   const [date, setDate] = useState<Date>();
   const [time, setTime] = useState<string>();
 
@@ -31,8 +32,21 @@ export default function Service({
   const [showPayment, setShowPayment] = useState<boolean>(false);
   const [bookingConfirmed, setBookingConfirmed] = useState<boolean>(false);
 
-  const mockPayment = () => {
+  const mockPayment = async () => {
     setShowPayment(true);
+    await postSessionData({
+      username: user.username,
+      sessionData: {
+        id: service.id,
+        name: service.name,
+        description: service.description,
+        amount: service.amount,
+        timeslot: service.timeslot,
+        meetlink: "https://meet.google.com/tsa-alm-ait",
+        booked_slot: time,
+        date: date!.toDateString(),
+      }
+    }, token);
     setTimeout(() => {
       setShowPayment(false);
       setBookingConfirmed(true);
@@ -60,9 +74,7 @@ export default function Service({
     }
   }
 
-  const isNotEnabled: Matcher = (day: Date) => {
-    return !service.availability[getDayFromNumber(day.getDay())].enabled;
-  };
+  const isNotEnabled: Matcher = (day: Date) => !service.availability[getDayFromNumber(day.getDay())].enabled;
 
   return (
     <>
