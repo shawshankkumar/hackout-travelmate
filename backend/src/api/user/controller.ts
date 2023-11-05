@@ -246,3 +246,13 @@ export const handleDasboardFetch: RouteHandler<{ Params: { slug: string } }> =
       data
     });
   };
+
+  export const handleSingleUserFetch: RouteHandler<{ Headers: FetchUserHeaderType }> =
+  async function (request, reply) {
+    const data = await (await DB()).collection("users").find({name: {$regex: (request as any).body.name, $options: 'i'}}).toArray();
+    reply.status(200).send({
+      message: "Users Data Fetched!",
+      status: true,
+      data
+    });
+  };
