@@ -21,7 +21,9 @@ const About = () => {
         <div>
           <Button className="rounded-full px-6 py-6 flex items-center gap-5">
             <div>
-              <h1 className="text-2xl font-semibold">Publish your page</h1>
+              <a href="/auth">
+                <h1 className="text-2xl font-semibold">Publish your page</h1>
+              </a>
             </div>
             <div>
               <ArrowTopRightIcon width={35} height={35} />
@@ -30,7 +32,13 @@ const About = () => {
         </div>
       </div>
       <div className="w-full lg:w-1/2 flex justify-start lg:justify-center items-center gap-10 p-5 lg:pr-20">
-        <Image className="w-full max-w-[400px] lg:max-w-none lg:w-11/12" src={"/images/CreatePageTemplate.svg"} alt="/" width={500} height={500} />
+        <Image
+          className="w-full max-w-[400px] lg:max-w-none lg:w-11/12"
+          src={"/images/CreatePageTemplate.svg"}
+          alt="/"
+          width={500}
+          height={500}
+        />
       </div>
     </div>
   );

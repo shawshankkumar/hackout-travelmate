@@ -55,7 +55,9 @@ const Hero = () => {
         <div>
           <Button className="p-7 flex items-center gap-5">
             <div>
-              <h1 className="text-2xl font-semibold">Start your page</h1>
+              <a href="/auth">
+                <h1 className="text-2xl font-semibold">Start your page</h1>
+              </a>
             </div>
             <div>
               <ArrowRightIcon width={30} height={30} />
