@@ -51,6 +51,13 @@ const Hero = () => {
                 placeholder="Search Location"
               />
             </div>
+            <Button className="p-5 flex items-center gap-5 mt-3 bg-purple-500">
+              <div>
+                <Link href="/travelers">
+                  <h1 className="text-xl font-semibold">Search Travelers</h1>
+                </Link>
+              </div>
+            </Button>
           </div>
         </div>
         <div>
