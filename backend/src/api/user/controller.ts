@@ -8,6 +8,7 @@ import {
 import DB from "@/loaders/mongo";
 import { ZodError } from "zod";
 import { sendMail } from "@/utils/mailer";
+import _ from 'lodash';
 
 export const handleUserFetch: RouteHandler<{ Headers: FetchUserHeaderType }> =
   async function (request, reply) {
@@ -249,10 +250,15 @@ export const handleDasboardFetch: RouteHandler<{ Params: { slug: string } }> =
 
   export const handleSingleUserFetch: RouteHandler<{ Headers: FetchUserHeaderType }> =
   async function (request, reply) {
-    const data = await (await DB()).collection("users").find({name: {$regex: (request as any).body.name, $options: 'i'}, 'dest': {$regex: (request as any).body.name, $options: 'i'}}).toArray();
+    const data = await (await DB()).collection("users").find({name: {$regex: (request as any).body.name, $options: 'i'}}).toArray();
+    // const desData = await (await DB()).collection("users").find({'destinations.$': {$regex: (request as any).body.name, $options: 'i'}}).toArray();
+    const desData=[]
+const dataa=_.uniqBy(data.concat(desData), function (e) {
+  return e.email;
+});
     reply.status(200).send({
       message: "Users Data Fetched!",
       status: true,
-      data
+      dat: dataa,
     });
   };
