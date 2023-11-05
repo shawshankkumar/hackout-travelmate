@@ -9,6 +9,7 @@
 6. Fastify
 7. MongoDB
 8. Google oauth
+9. Resend (mailing)
 
 ## Statement 
 We aim to build a product which can make travelling more personal. How often do we see reels of people visiting leh ladak and we have many questions but we can't ask them specific details? Or how often do frequent travellers think about monetising their travel experience? TravelMate aims to solve all these and more. We want travellers to be able to share their experience and time in a way that everyone involved can benefit from. From discovering people who have been to those places to booking a consultation with them, travel mate offers everything one needs.
