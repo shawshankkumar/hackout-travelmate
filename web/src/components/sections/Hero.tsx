@@ -6,6 +6,7 @@ import {
   MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -55,9 +56,9 @@ const Hero = () => {
         <div>
           <Button className="p-7 flex items-center gap-5">
             <div>
-              <a href="/auth">
+              <Link href="/auth">
                 <h1 className="text-2xl font-semibold">Start your page</h1>
-              </a>
+              </Link>
             </div>
             <div>
               <ArrowRightIcon width={30} height={30} />

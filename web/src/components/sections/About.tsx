@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import Link from "next/link";
 const About = () => {
   return (
     <div className="flex flex-col lg:flex lg:flex-row w-full min-h-screen h-fit lg:h-screen bg-travelMate-backgroundLight">
@@ -21,9 +22,9 @@ const About = () => {
         <div>
           <Button className="rounded-full px-6 py-6 flex items-center gap-5">
             <div>
-              <a href="/auth">
+              <Link href="/auth">
                 <h1 className="text-2xl font-semibold">Publish your page</h1>
-              </a>
+              </Link>
             </div>
             <div>
               <ArrowTopRightIcon width={35} height={35} />
