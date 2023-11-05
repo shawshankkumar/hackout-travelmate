@@ -13,7 +13,8 @@ export const ConfirmBookingSchema = z.object({ username: z.string(), sessionData
     amount: z.number(),
     timeslot: z.number(),
     meetlink: z.string(),
-    booked_slot: z.string()
+    booked_slot: z.string(),
+    date: z.string()
 }) });
 
 export type UsernameType = z.infer<typeof UsernameSchema>;
