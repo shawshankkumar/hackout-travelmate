@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <div className="bg-black p-5 lg:p-20 flex flex-col-reverse gap-20 lg:flex lg:flex-row justify-between text-white">
       <div className="flex items-center gap-5">
-        <Image className="w-28" src="/images/logoIcon.png" alt="" width={150} height={150} />
+        <Image className="w-28" src="/images/Logo.svg" alt="" width={150} height={150} />
         <h1 className="text-4xl lg:text-9xl font-bold">travelmate</h1>
       </div>
       <div className="flex flex-col gap-5">
