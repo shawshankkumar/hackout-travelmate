@@ -35,3 +35,18 @@ export const getUserData = async (token: string) => {
     console.log(err);
   }
 };
+
+export const postSessionData = async (data: Record<string, any>, token: string) => {
+  try {
+    const res = await apiInstance.post(
+      "/user/booking/confirm", data, {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+}

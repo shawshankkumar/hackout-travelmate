@@ -25,5 +25,6 @@ export default function useUser() {
       }
     });
   }, [router, token]);
-  return user;
+
+  return { ...user, token };
 }
