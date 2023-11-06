@@ -1,4 +1,6 @@
-## Our project for hackout, a hackathon by headout
+## Our project for hackout, a hackathon by headout (we won the best travel project 🚀 )
+
+<img width="953" alt="image" src="https://github.com/shawshankkumar/hackout-travelmate/assets/74819565/a7654450-9352-41c4-a150-1b1525299bab">
 
 ## Tech stack:
 1. NEXT.JS (w TypeScript)
@@ -19,10 +21,6 @@ We aim to build a product which can make travelling more personal. How often do 
 2. [Mohamed Sami](https://github.com/sm-sami)
 3. [Harshit Singh](https://github.com/whiletrueee)
 4. [Shashank Kumar](https://github.com/shawshankkumar)
-
-Frontend URL(Vercel): https://hackout.shawshankkumar.me </br>
-Backend URL(AWS ec2): https://hack-api.shawshankkumar.me
-Backend docs URL (postman): https://documenter.getpostman.com/view/14132958/2s9YXe8QTo
 
 ## Deploy:
 run deploy.sh
